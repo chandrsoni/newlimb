@@ -11,23 +11,23 @@
 # sinb =  y/l - ((x/l) * (sindiff/ (1 + cosdiff))) / (((1 + cosdiff) + sindiff * (sindiff/ (1 + cosdiff))))
 # l * sinb = (y * (1 + cosdiff) - x * sindiff)/(sindiff ** 2 + (1 + cosdiff) ** 2)
 import math
-def computeAngles(x, y, l):
-    if(x** 2 + y**2 > 4 * l**2) :
-        normalizingFactor = math.sqrt((3.999 * l**2)/(x** 2 + y**2))
+def computeAngles(x, y):
+    x = x* 1.0
+    y = y * 1.0
+    print("x,y", x, y)
+    if(x** 2 + y**2 > 4) :
+        normalizingFactor = math.sqrt((3.999)/(x** 2 + y**2))
         print(normalizingFactor)
         x = x * normalizingFactor
         y = y * normalizingFactor
 
-    sumsq = (y ** 2 + x ** 2)/ (l ** 2)
+    sumsq = (y ** 2 + x ** 2)
     cosdiff = (sumsq - 2)/2
     sindiff = math.sqrt(1 - cosdiff ** 2)
+
     numerator = y * (1 + cosdiff) - x * sindiff
-    denominator = l * (sindiff ** 2 + (1 + cosdiff) ** 2)
+    denominator = (0.0001 + sindiff ** 2 + (1 + cosdiff) ** 2)
     sinb = numerator / denominator
-    print(sinb)
     a = math.asin(sinb)
-    print(cosdiff)
     b = a + math.acos(cosdiff)
-    print(l * math.cos(a) + l * math.cos(b))
-    print(l * math.sin(a) + l * math.sin(b))
     return ((a * 180)/math.pi,((b - a) * 180)/math.pi)
