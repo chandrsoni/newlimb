@@ -26,7 +26,7 @@ root.geometry("300x600")
 def motion(event):
     x, y = event.x, 300 - event.y
     print('x: {},y: {}'.format(x, y))
-    a,b = computeAngles(x/150.000,y/150.00)
+    a,b = computeAngles(x/150.000000000,y/150.000000000)
     print('a: {},b: {}'.format(a,b))
     servo1.ChangeDutyCycle(7 + (a/18.00))
     servo2.ChangeDutyCycle(2 + (b/18.00))
