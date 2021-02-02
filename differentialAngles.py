@@ -1,6 +1,7 @@
 # calculate the angles based on the differential
 # x = l cos(a) + l cos(b)
 # y = l sin(a) + l sin(b)
+# differentiate for da and db
 import math
 
 def calcAngles(x,y,a,b):
